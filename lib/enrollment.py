@@ -4,6 +4,7 @@ class Student:
         self.name = name
         self._enrollments = []
 
+   
     def enroll(self, course):
         if isinstance(course, Course):
             enrollment = Enrollment(self, course)
@@ -12,6 +13,7 @@ class Student:
         else:
             raise TypeError("course must be an instance of Course")
 
+    
     def get_enrollments(self):
         return self._enrollments.copy()
 
@@ -21,12 +23,14 @@ class Course:
         self.title = title
         self._enrollments = []
 
+    
     def add_enrollment(self, enrollment):
         if isinstance(enrollment, Enrollment):
             self._enrollments.append(enrollment)
         else:
             raise TypeError("enrollment must be an instance of Enrollment")
 
+    
     def get_enrollments(self):
         return self._enrollments.copy()
 
@@ -43,5 +47,6 @@ class Enrollment:
         else:
             raise TypeError("Invalid types for student and/or course")
 
+    
     def get_enrollment_date(self):
         return self._enrollment_date
